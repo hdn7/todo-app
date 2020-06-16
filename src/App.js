@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Layout>
-        <TaskList />
+        <TaskList tasks={['a']} />
       </Layout>
     </div>
   );
