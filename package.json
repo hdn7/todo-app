@@ -1,5 +1,5 @@
 {
-  "name": "pokedex",
+  "name": "todo-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,10 +11,12 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/styles/index.css -o src/styles/tailwind.css",
+    "watch:css": "postcss src/styles/index.css -o src/styles/tailwind.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +32,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.20.0",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
+    "prettier": "^2.0.5",
+    "tailwindcss": "^1.4.6"
   }
 }
