@@ -10,10 +10,10 @@ const TaskCard = ({ text, time, color }) => (
     <span>
       <CheckCircleIcon className="w-8 text-gray-200" />
     </span>
-    <span className="ml-3 text-sm text-gray-400 tracking-wide font-base">{time}</span>
-    <span className="ml-3 text-lg text-black font-medium">{text}</span>
+    <span className="ml-2 text-sm text-gray-400 tracking-wide font-base">{time}</span>
+    <span className="ml-2 pr-6 text-lg text-black font-medium truncate">{text}</span>
     <span className="absolute inset-y-0 right-0 flex items-center mr-2">
-      <BellIcon className="w-6 text-gray-500" />
+      <BellIcon className="w-6 text-gray-300" />
     </span>
   </div>
 );
