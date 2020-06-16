@@ -10,17 +10,17 @@ const TaskCard = ({ text, time, color }) => (
     <span>
       <CheckCircleIcon className="w-8 text-gray-200" />
     </span>
-    <span className="ml-2 text-sm text-gray-400 tracking-wide font-base">{time}</span>
-    <span className="ml-2 pr-6 text-lg text-black font-medium truncate">{text}</span>
+    <span className="ml-1 text-xs text-gray-400 tracking-wide font-base">{time}</span>
+    <span className="ml-2 pr-6 text-base text-black font-medium truncate">{text}</span>
     <span className="absolute inset-y-0 right-0 flex items-center mr-2">
-      <BellIcon className="w-6 text-gray-300" />
+      <BellIcon className="w-5 text-gray-300" />
     </span>
   </div>
 );
 
 const TaskList = ({ tasks }) => {
   return tasks ? (
-    <div className="mt-32 py-1 px-4 w-screen">
+    <div className="py-1 px-4 w-screen">
       <div className="my-3 text-gray-600 tracking-wide font-bold">Today</div>
       <div className="mt-3">
         <TaskCard text={'Send email'} time={'07:00AM'} color="yellow" />
