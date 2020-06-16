@@ -15529,7 +15529,7 @@ video {
   transition-delay: 1000ms;
 }
 
-* {
+button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 

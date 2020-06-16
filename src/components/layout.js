@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
     </header>
     <main className="min-h-screen">{children}</main>
     <footer>
-      <div className="flex justify-around items-center fixed inset-x-0 bottom-0 bg-white h-20 w-full shadow-3xl">
+      <div className="flex justify-around items-center fixed inset-x-0 bottom-0 bg-white h-20 w-full shadow-2xl">
         <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
           <HomeIcon className="h-8 w-8 ml-4 opacity-75" />
         </button>
