@@ -1,8 +1,8 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {}
+    extend: {},
   },
-  variants: {},
-  plugins: []
+  variants: { backgroundColor: ['responsive', 'hover', 'focus', 'active'] },
+  plugins: [],
 };
