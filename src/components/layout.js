@@ -4,6 +4,7 @@ import { ReactComponent as LightBulbIcon } from '../assets/icons/lightbulb.svg';
 import { ReactComponent as HomeIcon } from '../assets/icons/home.svg';
 import { ReactComponent as GridIcon } from '../assets/icons/grid.svg';
 import { ReactComponent as PlusCircleIcon } from '../assets/icons/plusCircle.svg';
+import TaskCreator from './taskCreator';
 
 const Layout = ({ children }) => (
   <div className="flex min-h-screen bg-gray-200 items-between">
@@ -38,18 +39,16 @@ const Layout = ({ children }) => (
       </nav>
     </header>
     <main className="mt-32 pb-20">{children}</main>
-    <footer>
-      <div className="flex justify-around items-center fixed inset-x-0 bottom-0 bg-white h-20 w-full shadow-2xl">
-        <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
-          <HomeIcon className="h-8 w-8 ml-4 opacity-75" />
-        </button>
-        <button className="text-purple-500 active:text-purple-700 focus:outline-none">
-          <PlusCircleIcon className="h-16 w-16 top-0" />
-        </button>
-        <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
-          <GridIcon className="h-8 w-8 mr-4 opacity-75" />
-        </button>
-      </div>
+    <footer className="flex justify-around items-center fixed inset-x-0 bottom-0 bg-white h-20 w-full shadow-2xl">
+      <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
+        <HomeIcon className="h-8 w-8 ml-4 opacity-75" />
+      </button>
+      <button className="absolute -mt-8 top-0 text-purple-500 active:text-purple-700 focus:outline-none shadows-xl">
+        <PlusCircleIcon className="h-16 w-16" />
+      </button>
+      <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
+        <GridIcon className="h-8 w-8 mr-4 opacity-75" />
+      </button>
     </footer>
   </div>
 );
