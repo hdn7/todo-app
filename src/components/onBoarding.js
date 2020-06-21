@@ -2,7 +2,7 @@ import React from 'react';
 import clipboard from '../assets/images/clipboard-colors.png';
 
 const OnBoarding = () => (
-  <div className="flex flex-col items-center justify-around h-full bg-white">
+  <div className="container flex flex-col items-center justify-around h-full bg-white">
     <div className="flex flex-col items-center mt-10">
       <img src={clipboard} alt="" className="w-48 h-48" />
       <div className="text-xl tracking-tight text-blue-900 font-medium mt-20">

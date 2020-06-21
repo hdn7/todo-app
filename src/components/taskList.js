@@ -20,7 +20,7 @@ const TaskCard = ({ text, time, color }) => (
 
 const TaskList = ({ tasks }) => {
   return tasks ? (
-    <div className="py-1 px-4 w-screen">
+    <div className="container py-1 px-2 md:px-10 mx-auto">
       <div className="my-3 text-gray-600 tracking-wide font-bold">Today</div>
       <div className="mt-3">
         <TaskCard text={'Send email'} time={'07:00AM'} color="yellow" />
