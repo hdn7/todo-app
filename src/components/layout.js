@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import ellipse from '../assets/images/ellipse.png';
 import { ReactComponent as LightBulbIcon } from '../assets/icons/lightbulb.svg';
@@ -6,6 +6,7 @@ import { ReactComponent as HomeIcon } from '../assets/icons/home.svg';
 import { ReactComponent as GridIcon } from '../assets/icons/grid.svg';
 import { ReactComponent as PlusCircleIcon } from '../assets/icons/plusCircle.svg';
 import TaskCreator from './taskCreator';
+import { PageContext } from '../contexts/PageContext';
 
 const variants = {
   open: { opacity: 1, y: 0 },
@@ -20,17 +21,24 @@ const blurVariants = {
   closed: { display: 'none' },
 };
 
-const TabLink = ({ Icon }) => (
-  <button className="h-full w-full flex justify-center items-center text-gray-500 active:text-gray-700 focus:outline-none">
-    <Icon className="h-8 w-8 ml-4 opacity-75" />
+const TabLink = ({ name, Icon, active, onClick }) => (
+  <button
+    className={`h-full w-full block ${
+      active ? 'text-blue-500' : 'text-gray-500 active:text-gray-700'
+    } focus:outline-none`}
+    onClick={onClick}
+  >
+    <Icon className="h-8 w-8 mx-auto opacity-75" />
+    <div className="text-xs">{name}</div>
   </button>
 );
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useContext(PageContext);
 
   return (
-    <div className="flex min-h-screen bg-gray-200 items-between">
+    <div className="flex min-h-screen bg-gray-200 items-between antialiased">
       <header className="fixed w-full overflow-hidden shadow">
         <nav
           className="relative h-32"
@@ -77,14 +85,24 @@ const Layout = ({ children }) => {
         >
           <TaskCreator onClose={() => setIsOpen(false)} />
         </motion.div>
-        <TabLink Icon={HomeIcon} />
+        <TabLink
+          name="Home"
+          Icon={HomeIcon}
+          active={currentPage === 'home'}
+          onClick={() => setCurrentPage('home')}
+        />
         <button
           className="absolute -mt-8 top-0 text-purple-500 active:text-purple-700 focus:outline-none"
           onClick={() => setIsOpen(true)}
         >
           <PlusCircleIcon className="h-16 w-16" />
         </button>
-        <TabLink Icon={GridIcon} />
+        <TabLink
+          name="Task"
+          Icon={GridIcon}
+          active={currentPage === 'task'}
+          onClick={() => setCurrentPage('task')}
+        />
       </footer>
     </div>
   );

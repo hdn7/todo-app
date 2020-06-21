@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactComponent as XCircleIcon } from '../assets/icons/xCircle.svg';
 import { ReactComponent as CircleIcon } from '../assets/icons/circle.svg';
 import useTags from '../hooks/useTags';

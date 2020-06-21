@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/tailwind.css';
 import App from './App';
+import { PageContextProvider } from './contexts/PageContext';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PageContextProvider>
+      <App />
+    </PageContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

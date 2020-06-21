@@ -17,7 +17,7 @@ const TaskCategory = ({ category, Icon, color, tasksCount }) => (
 );
 
 const TaskStats = () => (
-  <div className="container px-auto pt-4">
+  <div className="container mx-auto pt-4">
     <span className="ml-4 text-gray-600 tracking-wide font-bold">Tasks</span>
     <div className="flex flex-row justify-between h-48 mt-4">
       <TaskCategory Icon={UserIcon} color="yellow" category="Personal" tasksCount={20} />

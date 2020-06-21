@@ -20,15 +20,15 @@ const TaskCard = ({ text, time, color }) => (
 
 const TaskList = ({ tasks }) => {
   return tasks ? (
-    <div className="container py-1 px-2 md:px-10 mx-auto">
-      <div className="my-3 text-gray-600 tracking-wide font-bold">Today</div>
+    <div className="container px-2 md:px-10 mx-auto">
+      <div className="my-4 ml-2 text-gray-600 tracking-wide font-bold">Today</div>
       <div className="mt-3">
         <TaskCard text={'Send email'} time={'07:00AM'} color="yellow" />
       </div>
       <div className="mt-3">
         <TaskCard text={'Groceries'} time={'07:00AM'} color="green" />
       </div>
-      <div className="my-3 text-gray-600 tracking-wide font-bold">Tomorrow</div>
+      <div className="my-4 ml-2 text-gray-600 tracking-wide font-bold">Tomorrow</div>
       <div className="mt-2">
         <TaskCard text={'Study'} time={'07:00AM'} color="blue" />
       </div>
