@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { ReactComponent as XCircleIcon } from '../assets/icons/xCircle.svg';
 import { ReactComponent as CircleIcon } from '../assets/icons/circle.svg';
 import useTags from '../hooks/useTags';
 import tags from '../constants/tags';
+import { AppContext } from '../contexts/AppContext';
 
 const LineSeparator = () => (
   <div className="w-full px-4 py-2">
@@ -28,6 +29,22 @@ const TaskTag = ({ children, color, selected, onClick }) => {
 
 const TaskCreator = ({ onClose }) => {
   const tagStates = useTags(tags);
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const {
+    tasks: [, dispatch],
+  } = useContext(AppContext);
+
+  const addTaskHandler = () => {
+    dispatch({
+      type: 'ADD_TASK',
+      task: { description, date, tag: tagStates.find(({ selected }) => selected)?.name || '' },
+    });
+    setDescription('');
+    setDate('');
+    tagStates.forEach(({ setSelected }) => setSelected(false));
+    onClose();
+  };
 
   return (
     <div className="relative h-80 bg-white shadow-xl">
@@ -44,6 +61,8 @@ const TaskCreator = ({ onClose }) => {
         <textarea
           className="p-4 h-28 w-full text-base sm:text-xl focus:outline-none"
           placeholder="Task description..."
+          value={description}
+          onChange={({ target: { value } }) => setDescription(value)}
         />
         <LineSeparator />
         <div className="overflow-hidden">
@@ -62,12 +81,13 @@ const TaskCreator = ({ onClose }) => {
         <LineSeparator />
         <div className="flex justify-start items-center p-4">
           <span className="text-base sm:text-xl text-gray-600 mr-4">Choose date</span>
-          <input type="date" />
+          <input type="date" value={date} onChange={({ target: { value } }) => setDate(value)} />
         </div>
         <div className="max-w-sm sm:max-w-md mx-auto p-4">
           <button
             className="w-full p-4 bg-blue-500 text-lg sm:text-xl text-white font-bold rounded-lg shadow-xl 
             focus:outline-none focus:shadow-outline active:bg-blue-700"
+            onClick={addTaskHandler}
           >
             Add task
           </button>
