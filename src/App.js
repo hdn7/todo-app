@@ -3,12 +3,14 @@ import React, { useContext } from 'react';
 import Layout from './components/layout';
 import TaskList from './components/taskList';
 import TaskStats from './components/taskStats';
-import { PageContext } from './contexts/PageContext';
+import { AppContext } from './contexts/AppContext';
 
 function App() {
-  const [currentPage] = useContext(PageContext);
+  const {
+    page: [currentPage],
+  } = useContext(AppContext);
 
-  return <Layout>{currentPage === 'home' ? <TaskList tasks={['as']} /> : <TaskStats />}</Layout>;
+  return <Layout>{currentPage === 'home' ? <TaskList /> : <TaskStats />}</Layout>;
 }
 
 export default App;

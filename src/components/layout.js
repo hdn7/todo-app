@@ -6,7 +6,7 @@ import { ReactComponent as HomeIcon } from '../assets/icons/home.svg';
 import { ReactComponent as GridIcon } from '../assets/icons/grid.svg';
 import { ReactComponent as PlusCircleIcon } from '../assets/icons/plusCircle.svg';
 import TaskCreator from './taskCreator';
-import { PageContext } from '../contexts/PageContext';
+import { AppContext } from '../contexts/AppContext';
 
 const variants = {
   open: { opacity: 1, y: 0 },
@@ -15,7 +15,7 @@ const variants = {
 
 const blurVariants = {
   open: {
-    backdropFilter: 'grayscale(0.3) blur(2px)',
+    backdropFilter: 'grayscale(0.4) blur(2px)',
     display: 'block',
   },
   closed: { display: 'none' },
@@ -35,7 +35,9 @@ const TabLink = ({ name, Icon, active, onClick }) => (
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useContext(PageContext);
+  const {
+    page: [currentPage, setCurrentPage],
+  } = useContext(AppContext);
 
   return (
     <div className="flex min-h-screen bg-gray-200 items-between antialiased">

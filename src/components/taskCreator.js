@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactComponent as XCircleIcon } from '../assets/icons/xCircle.svg';
 import { ReactComponent as CircleIcon } from '../assets/icons/circle.svg';
 import useTags from '../hooks/useTags';
+import tags from '../constants/tags';
 
 const LineSeparator = () => (
   <div className="w-full px-4 py-2">
@@ -26,14 +27,6 @@ const TaskTag = ({ children, color, selected, onClick }) => {
 };
 
 const TaskCreator = ({ onClose }) => {
-  const tags = {
-    Personal: 'yellow',
-    Work: 'green',
-    Meeting: 'purple',
-    Shop: 'pink',
-    Party: 'blue',
-    Study: 'orange',
-  };
   const tagStates = useTags(tags);
 
   return (

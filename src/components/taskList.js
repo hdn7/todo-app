@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ClipboardGray from '../assets/images/clipboard-gray.png';
 import { ReactComponent as BellIcon } from '../assets/icons/bell.svg';
 import { ReactComponent as CheckCircleIcon } from '../assets/icons/checkCircle.svg';
+import { AppContext } from '../contexts/AppContext';
+import tags from '../constants/tags';
 
 const TaskCard = ({ text, time, color }) => (
   <div
@@ -18,19 +20,22 @@ const TaskCard = ({ text, time, color }) => (
   </div>
 );
 
-const TaskList = ({ tasks }) => {
+const TaskList = () => {
+  const {
+    tasks: [{ tasks }],
+  } = useContext(AppContext);
+
   return tasks ? (
     <div className="container px-2 md:px-10 mx-auto">
       <div className="my-4 ml-2 text-gray-600 tracking-wide font-bold">Today</div>
-      <div className="mt-3">
-        <TaskCard text={'Send email'} time={'07:00AM'} color="yellow" />
-      </div>
-      <div className="mt-3">
-        <TaskCard text={'Groceries'} time={'07:00AM'} color="green" />
-      </div>
+      {tasks.map(({ id, description, date, tag }) => (
+        <div className="mt-3">
+          <TaskCard key={id} text={description} time={date} color={tags[tag]} />
+        </div>
+      ))}
       <div className="my-4 ml-2 text-gray-600 tracking-wide font-bold">Tomorrow</div>
       <div className="mt-2">
-        <TaskCard text={'Study'} time={'07:00AM'} color="blue" />
+        <TaskCard text={'Dinner party'} time={'08:00PM'} color="blue" />
       </div>
     </div>
   ) : (
